@@ -1,0 +1,11 @@
+{
+  "name": "nodewithbrad",
+  "version": "1.0.0",
+  "description": "Backend with javascript",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "Aslam",
+  "license": "MIT"
+}
