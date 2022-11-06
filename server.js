@@ -5,6 +5,7 @@ const connectDB = require('./config/db');
 const colors = require('colors');
 const errorHandler = require('./middleware/error');
 const fileupload = require('express-fileupload');
+const path = require('path');
 
 // route files
 const bootcamps = require('./routes/bootcamps');
@@ -27,6 +28,7 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 app.use(fileupload());
+app.use(express.static(path.join(__dirname, 'public')))
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
 app.use('/api/v1/courses', courses);
