@@ -6,6 +6,7 @@ const colors = require('colors');
 const errorHandler = require('./middleware/error');
 const fileupload = require('express-fileupload');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 // route files
 const bootcamps = require('./routes/bootcamps');
@@ -22,6 +23,7 @@ connectDB();
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 
 // login middleware
 if(process.env.NODE_ENV === 'development'){
