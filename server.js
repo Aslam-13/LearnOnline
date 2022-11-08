@@ -8,6 +8,8 @@ const fileupload = require('express-fileupload');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xss = require('xss-clean');
 // route files
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
@@ -34,6 +36,8 @@ if(process.env.NODE_ENV === 'development'){
 app.use(fileupload());
 
 app.use(mongoSanitize());
+app.use(helmet());
+app.use(xss());
 app.use(express.static(path.join(__dirname, 'public')))
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
