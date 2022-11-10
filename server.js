@@ -51,12 +51,7 @@ app.use(hpp());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')))
 // Mount routers
-app.get('/', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'API service running 🚀',
-  });
-});
+ 
 app.use('/api/v1/bootcamps', bootcamps);
 app.use('/api/v1/courses', courses);
 app.use('/api/v1/auth', auth);
